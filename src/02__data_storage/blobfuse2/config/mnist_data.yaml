@@ -1,0 +1,42 @@
+# Refer ./setup/baseConfig.yaml for full set of config parameters
+allow-other: true
+
+logging:
+  type: syslog
+  level: log_debug
+
+components:
+  - libfuse
+  - file_cache
+  - attr_cache
+  - azstorage
+
+libfuse:
+  attribute-expiration-sec: 120
+  entry-expiration-sec: 120
+  negative-entry-expiration-sec: 240
+
+file_cache:
+  # Define the cache size / place
+  path: /tmp/.azcache
+  timeout-sec: 120
+  max-size-mb: 512
+
+attr_cache:
+  timeout-sec: 7200
+
+azstorage:
+  type: block
+  # Enable virtual directory => Important to discover well files
+  virtual-directory : true
+  account-name: <STORAGE NAME>
+  endpoint: https://<STORAGE NAME>.blob.core.windows.net
+  # mode possible : key|sas|spn|msi
+  mode: key
+  account-key: <ACCOUNT KEY>
+
+mountall:
+  # allowlist takes precedence over denylist in case of conflicts
+  container-allowlist:
+    - mnist-data
+

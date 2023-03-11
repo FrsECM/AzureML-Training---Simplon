@@ -1,0 +1,4 @@
+# We ignore tf_state files
+*.tfstate*
+*.terraform*
+**data/
