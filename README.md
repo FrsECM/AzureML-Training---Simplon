@@ -2,10 +2,6 @@
 
 This repo contains ressources that are necessary for AzureML Simplon Training.
 
-## Create the AzureML Environment
-The first part of the training will be to create the environment.
-In this part we'll use terraform to automatically feed our lab default ressource group.
-
 ## Data and Storages
 In this part we'll talk about how to use Data in AzureML.
 
